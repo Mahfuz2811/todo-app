@@ -1,0 +1,42 @@
+version: '2'
+
+services:
+    nginx:
+        image: nginx:1.13.6
+        container_name: todo-app-nginx
+        ports:
+            - "8080:80"
+        volumes:
+            - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+        volumes_from:
+            - php
+
+    php:
+        build:
+            context: .
+            dockerfile: ./docker/php/Dockerfile
+        container_name: todo-app-php
+        expose:
+            - 9000
+        volumes:
+            - .:/var/www/html
+        links:
+            - postgres
+
+    node:
+        build:
+            context: .
+            dockerfile: ./docker/node/Dockerfile
+        container_name: todo-app-node
+
+    postgres:
+        image: postgres:10.4-alpine
+        container_name: todo-app-postgres
+        ports:
+            - "54321:5432"
+        volumes:
+            - ~/.backup/postgres/laravel/todo_app:/var/lib/postgresql/data
+        environment:
+            - POSTGRES_USER=root
+            - POSTGRES_PASSWORD=secret
+            - POSTGRES_DB=todo_app

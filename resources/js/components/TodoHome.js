@@ -38,7 +38,7 @@ function TodoHome() {
 
     const addNewTodo = () => {
         if (!taskName) {
-            swal("Opps!", 'Enter task name', "error");
+            swal('Opps!', 'Enter task name', 'error');
             return;
         }
         let expires = new Date()
@@ -109,7 +109,7 @@ function TodoHome() {
 
         let todos = cookies.get('todo') ?? [];
         if (todos.length <= 0) {
-            alert('Empty todo');
+            swal('Opps!', 'Empty todo', 'error');
             return;
         }
 
@@ -119,18 +119,19 @@ function TodoHome() {
 
         authAxios.post('/api/v1/task/save', payload)
             .then(res => {
-                swal("Wow!", 'Task saved successfully', "success");
+                swal('Wow!', 'Task saved successfully', 'success');
             }).finally(() => {
             cookies.remove('todo');
             let cookieTodos = cookies.get('todo') ?? [];
             setTodos(cookieTodos);
         }).catch(error => {
-            swal("Opps!", 'Something went wrong', "error");
+            swal('Opps!', 'Something went wrong', 'error');
         })
     }
 
     const handleLogout = () => {
         dispatch(logout());
+        swal('Thanks', 'Successfully logout', 'success');
     }
 
     return (

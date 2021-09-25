@@ -2420,7 +2420,7 @@ function TodoHome() {
     var _cookies$get;
 
     if (!taskName) {
-      sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("Opps!", 'Enter task name', "error");
+      sweetalert__WEBPACK_IMPORTED_MODULE_3___default()('Opps!', 'Enter task name', 'error');
       return;
     }
 
@@ -2510,7 +2510,7 @@ function TodoHome() {
     var todos = (_cookies$get6 = cookies.get('todo')) !== null && _cookies$get6 !== void 0 ? _cookies$get6 : [];
 
     if (todos.length <= 0) {
-      alert('Empty todo');
+      sweetalert__WEBPACK_IMPORTED_MODULE_3___default()('Opps!', 'Empty todo', 'error');
       return;
     }
 
@@ -2518,7 +2518,7 @@ function TodoHome() {
       todos: todos
     };
     _utils_axios_authAxios__WEBPACK_IMPORTED_MODULE_13__["default"].post('/api/v1/task/save', payload).then(function (res) {
-      sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("Wow!", 'Task saved successfully', "success");
+      sweetalert__WEBPACK_IMPORTED_MODULE_3___default()('Wow!', 'Task saved successfully', 'success');
     })["finally"](function () {
       var _cookies$get7;
 
@@ -2526,12 +2526,13 @@ function TodoHome() {
       var cookieTodos = (_cookies$get7 = cookies.get('todo')) !== null && _cookies$get7 !== void 0 ? _cookies$get7 : [];
       setTodos(cookieTodos);
     })["catch"](function (error) {
-      sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("Opps!", 'Something went wrong', "error");
+      sweetalert__WEBPACK_IMPORTED_MODULE_3___default()('Opps!', 'Something went wrong', 'error');
     });
   };
 
   var handleLogout = function handleLogout() {
     dispatch((0,_redux_actions_auth__WEBPACK_IMPORTED_MODULE_5__.logout)());
+    sweetalert__WEBPACK_IMPORTED_MODULE_3___default()('Thanks', 'Successfully logout', 'success');
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.Fragment, {
