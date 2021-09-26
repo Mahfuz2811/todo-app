@@ -7,7 +7,7 @@
     <title>UnTu Task</title>
 </head>
 <body class="antialiased">
-    <div id="example"></div>
+    <div id="todo-app"></div>
     <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

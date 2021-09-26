@@ -23,12 +23,6 @@ services:
         links:
             - postgres
 
-    node:
-        build:
-            context: .
-            dockerfile: ./docker/node/Dockerfile
-        container_name: todo-app-node
-
     postgres:
         image: postgres:10.4-alpine
         container_name: todo-app-postgres

@@ -2569,11 +2569,11 @@ function TodoHome() {
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_2__.connect)(_redux_actions_auth__WEBPACK_IMPORTED_MODULE_5__.openLoginModal, _redux_actions_auth__WEBPACK_IMPORTED_MODULE_5__.logout)(TodoHome));
 
-if (document.getElementById('example')) {
+if (document.getElementById('todo-app')) {
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_redux__WEBPACK_IMPORTED_MODULE_2__.Provider, {
     store: _redux_store__WEBPACK_IMPORTED_MODULE_4__["default"],
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(TodoHome, {})
-  }), document.getElementById('example'));
+  }), document.getElementById('todo-app'));
 }
 
 /***/ }),
@@ -3018,7 +3018,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "APP_AUTHORIZED_STORAGE_USER": () => (/* binding */ APP_AUTHORIZED_STORAGE_USER)
 /* harmony export */ });
 var EXPIRE_TIME = 1;
-var BASE_URL = "http://localhost:8000";
+var BASE_URL = "http://localhost:8080";
 var APP_AUTHORIZATION_STORAGE_TOKEN = 'app-authorization_token';
 var APP_AUTHORIZED_STORAGE_USER = 'app-authorized_user';
 

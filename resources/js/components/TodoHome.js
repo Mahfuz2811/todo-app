@@ -163,9 +163,9 @@ export default connect(
     logout
 )(TodoHome);
 
-if (document.getElementById('example')) {
+if (document.getElementById('todo-app')) {
     ReactDOM.render(
         <Provider store={store}>
             <TodoHome/>
-        </Provider>, document.getElementById('example'));
+        </Provider>, document.getElementById('todo-app'));
 }
