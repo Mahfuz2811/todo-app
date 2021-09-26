@@ -16,4 +16,9 @@ class Task extends Model
         'pending' => 0,
         'complete' => 1
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

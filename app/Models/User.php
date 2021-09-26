@@ -33,6 +33,11 @@ class User extends Authenticatable implements JWTSubject
         $this->attributes['password'] = app('hash')->make($value);
     }
 
+    public function tasks()
+    {
+        return $this->hasMany(Task::class, 'user_id');
+    }
+
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
      *

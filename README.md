@@ -22,6 +22,7 @@ This repository contains Laravel `8.x`
 docker-compose run -e COMPOSER_MEMORY_LIMIT=-1 php composer install
 docker-compose run php php artisan key:generate
 docker-compose run php php artisan migrate
+docker-compose run php php artisan db:seed
 ```
 
 - Run `docker-compose up -d --build` to boot up the containers.
