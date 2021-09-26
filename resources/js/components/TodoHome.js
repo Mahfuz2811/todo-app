@@ -16,9 +16,11 @@ import TodoAdd from "./todos/add/TodoAdd";
 import TodoList from "./todos/list/TodoList";
 import TodoAction from "./todos/actions/TodoAction";
 import authAxios from "../utils/axios/authAxios";
+import Loader from "../utils/loader/Loader";
 
 function TodoHome() {
 
+    const [loading, setLoading] = useState(false);
     const isAuthenticated = useSelector(store => store.auth.isAuthenticated);
 
     const cookies = new Cookies();
@@ -117,14 +119,17 @@ function TodoHome() {
             todos: todos
         };
 
+        setLoading(true);
         authAxios.post('/api/v1/task/save', payload)
             .then(res => {
+                setLoading(false);
                 swal('Wow!', 'Task saved successfully', 'success');
             }).finally(() => {
             cookies.remove('todo');
             let cookieTodos = cookies.get('todo') ?? [];
             setTodos(cookieTodos);
         }).catch(error => {
+            setLoading(false);
             swal('Opps!', 'Something went wrong', 'error');
         })
     }
@@ -132,6 +137,10 @@ function TodoHome() {
     const handleLogout = () => {
         dispatch(logout());
         swal('Thanks', 'Successfully logout', 'success');
+    }
+
+    if (loading) {
+        return <Loader/>
     }
 
     return (

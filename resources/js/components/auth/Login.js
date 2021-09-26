@@ -42,6 +42,10 @@ function LoginModal() {
                     {
                         loginError ? <p className="text-center alert-danger">{message}</p> : null
                     }
+                    <div>
+                        <p>Email: mahfuz@gmail.com</p>
+                        <p>password: password</p>
+                    </div>
                     <div className="row">
                         <form onSubmit={handleLogin}>
                             <div className="form-group row">

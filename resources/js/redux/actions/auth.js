@@ -40,10 +40,11 @@ export const login = (email, password) => {
                     dispatch({type: CLOSE_LOGIN_MODAL});
                 }, 1000)
             }).catch(error => {
+                console.log("ok");
                 console.log(error);
                 dispatch({
                     type: LOGIN_ERROR,
-                    message: error.data.message
+                    message: error?.data?.message ?? 'Something went wrong'
                 })
             })
     }

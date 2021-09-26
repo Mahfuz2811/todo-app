@@ -1,0 +1,21 @@
+.Loader {
+    background-color: #EAEBEE;
+    height: 100vh;
+    width: 100vw;
+    padding-top: 20px;
+    -webkit-box-pack: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.Icon {
+    width: 5%;
+    margin: 20% auto;
+}
+
+@media (max-width: 499px) {
+    .Icon {
+        width: 15%;
+        margin: 50% auto;
+    }
+}
