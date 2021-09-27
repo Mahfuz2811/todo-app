@@ -39,6 +39,7 @@ class Handler extends ExceptionHandler
         if ($request->wantsJson()) {
             return $this->handleApiException($request, $exception);
         }
+
         return parent::render($request, $exception);
     }
 
@@ -50,7 +51,7 @@ class Handler extends ExceptionHandler
             case $exception instanceof TokenExpiredException:
             case $exception instanceof JWTException:
                 return $this->responder([
-                    'error'   => true,
+                    'error' => true,
                     'message' => $exception->getMessage() ?: 'Unauthorized.',
                 ], 401);
             case $exception instanceof QueryException:

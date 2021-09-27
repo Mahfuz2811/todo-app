@@ -6,7 +6,6 @@ use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
-
 use App\Models\User;
 
 class AuthController extends ApiController
@@ -14,8 +13,7 @@ class AuthController extends ApiController
     public function login(LoginRequest $request): JsonResponse
     {
         $credentials = $request->only('email', 'password');
-
-        if (! $token = auth()->attempt($credentials)) {
+        if (!$token = auth()->attempt($credentials)) {
             return $this->respondError([
                 'error' => true,
                 'message' => 'Invalid username or password.',
@@ -32,6 +30,7 @@ class AuthController extends ApiController
             'email',
             'password'
         ]);
+
         $userData['email_verified_at'] = Carbon::now();
 
         $user = User::create($userData);

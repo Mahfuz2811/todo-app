@@ -24,7 +24,7 @@ class TaskController extends ApiController
     public function store(TaskRequest $request): JsonResponse
     {
         $taskData = $request->only('task_name', 'user_id');
-        $task = Task::create($taskData);
+        Task::create($taskData);
 
         return $this->respondSuccess([
             'error' => false,
@@ -32,7 +32,7 @@ class TaskController extends ApiController
         ], 201);
     }
 
-    public function saveTask(SaveRequest $request)
+    public function saveTask(SaveRequest $request): JsonResponse
     {
         $data = [];
         $todos = $request->todos;
@@ -56,7 +56,6 @@ class TaskController extends ApiController
     public function update(TaskUpdateRequest $request, $id): JsonResponse
     {
         $task = Task::findOrFail($id);
-
         if (!is_null($task->expire_at)) {
             return $this->respondError([
                 'error' => true,
