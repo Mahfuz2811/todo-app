@@ -21,6 +21,7 @@ This repository contains Laravel `8.x`
 ```bash
 docker-compose run -e COMPOSER_MEMORY_LIMIT=-1 php composer install
 docker-compose run php php artisan key:generate
+docker-compose run php php artisan jwt:secret
 docker-compose run php php artisan migrate
 docker-compose run php php artisan db:seed
 ```
@@ -28,7 +29,7 @@ docker-compose run php php artisan db:seed
 - Run `docker-compose up -d --build` to boot up the containers.
 - Your application will be running in `http://localhost:8080`.
 
-N.B. The default email and password are
+N.B. The default email and password is
 - `email: mahfuz@gmail.com`
 - `password: password`
 
