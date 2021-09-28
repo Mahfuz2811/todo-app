@@ -1,4 +1,4 @@
-# Laravel Task
+# Todo App
 
 ## Laravel Version
 This repository contains Laravel `8.x`
